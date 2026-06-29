@@ -522,6 +522,54 @@
       width:1px; height:22px;
       background:rgba(255,255,255,0.28);
     }
+    .delivery-calendar{
+      width:min(100%, 880px);
+      margin:28px auto 0;
+      padding:24px clamp(20px,3vw,34px);
+      background:rgba(255,255,255,0.09);
+      border:1px solid rgba(255,255,255,0.18);
+      border-radius:24px;
+      text-align:left;
+    }
+    .delivery-calendar h3{
+      color:var(--c-yellow);
+      font-size:clamp(15px,1.25vw,18px);
+      text-transform:uppercase;
+      letter-spacing:1.4px;
+      margin-bottom:16px;
+    }
+    .delivery-calendar__grid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0, 1fr));
+      gap:12px;
+    }
+    .delivery-calendar__item{
+      background:rgba(255,255,255,0.08);
+      border:1px solid rgba(255,255,255,0.14);
+      border-radius:16px;
+      padding:15px 14px;
+      color:#fff;
+      font-size:clamp(13px,1.05vw,15px);
+      line-height:1.45;
+    }
+    .delivery-calendar__item strong{
+      display:block;
+      color:#fff;
+      font-weight:var(--fw-ui);
+      margin-bottom:3px;
+    }
+    .delivery-calendar__item > span{
+      display:block;
+      color:rgba(255,255,255,0.84);
+    }
+    .delivery-calendar__item strong span{
+      display:inline;
+      color:inherit;
+    }
+    .delivery-calendar__item > span span{
+      display:inline;
+      color:inherit;
+    }
     .howto-cta{ margin-top:40px; }
 
     /* ============================================================
@@ -689,6 +737,7 @@
       .intro, .costa, .howto, .loyalty{ padding:70px 24px; }
       footer{ padding:50px 24px 30px; }
       .howto-grid{ grid-template-columns:repeat(2, 1fr); }
+      .delivery-calendar__grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
       .loyalty-grid{ grid-template-columns:repeat(3, 1fr); gap:18px; }
       .howto h2, .loyalty h2{ margin-bottom:40px; }
     }
@@ -739,10 +788,13 @@
       .howto{ padding:60px 22px; }
       .howto h2{ font-size:28px; line-height:1.18; margin-bottom:34px; }
       .howto-grid{ grid-template-columns:1fr; gap:16px; margin-bottom:32px; }
-      .howto-step{ padding:26px 22px; }
+      .howto-step{ padding:24px 22px; border-radius:14px; }
       .howto-costs{ flex-direction:column; gap:12px; padding:20px 28px; border-radius:20px; }
-      .howto-cost-sep{ width:60px; height:1px; }
-
+      .howto-cost-sep{ width:50px; height:1px; }
+      .delivery-calendar{ margin-top:22px; padding:20px 18px; border-radius:18px; }
+      .delivery-calendar__grid{ grid-template-columns:1fr; gap:10px; }
+      .delivery-calendar__item{ padding:13px 14px; }
+      .howto-cta{ margin-top:30px; }
       .loyalty{ padding:60px 22px; }
       .loyalty h2{ font-size:28px; line-height:1.18; }
       .loyalty-lead{ font-size:16px; margin-bottom:36px; }
@@ -883,6 +935,27 @@
       <span class="howto-cost-sep" aria-hidden="true"></span>
       <span class="howto-cost"><strong data-i18n="cost2_label">Gastos de entrega</strong>€25,00</span>
     </div>
+    <div class="delivery-calendar" aria-labelledby="delivery-calendar-title">
+      <h3 id="delivery-calendar-title" data-i18n="calendar_title">Calendario de entregas</h3>
+      <div class="delivery-calendar__grid">
+        <div class="delivery-calendar__item">
+          <strong><span data-i18n="calendar_orders_label">Pedidos</span> 06/07</strong>
+          <span><span data-i18n="calendar_delivery_label">Entrega</span> 09/07</span>
+        </div>
+        <div class="delivery-calendar__item">
+          <strong><span data-i18n="calendar_orders_label">Pedidos</span> 20/07</strong>
+          <span><span data-i18n="calendar_delivery_label">Entrega</span> 23/07</span>
+        </div>
+        <div class="delivery-calendar__item">
+          <strong><span data-i18n="calendar_orders_label">Pedidos</span> 03/08</strong>
+          <span><span data-i18n="calendar_delivery_label">Entrega</span> 06/08</span>
+        </div>
+        <div class="delivery-calendar__item">
+          <strong><span data-i18n="calendar_orders_label">Pedidos</span> 17/08</strong>
+          <span><span data-i18n="calendar_delivery_label">Entrega</span> 20/08</span>
+        </div>
+      </div>
+    </div>
     <a href="https://orders.embargoapp.com/spaincatering/home" target="_blank" rel="noopener" class="cta-btn howto-cta" data-i18n="cta">Pedir ahora</a>
   </div>
 </section>
@@ -1004,6 +1077,9 @@
         step4_text: 'Los pedidos deben recibirse antes de las 12:00 del lunes anterior a la entrega.',
         cost1_label: 'Pedido mínimo',
         cost2_label: 'Gastos de entrega',
+        calendar_title: 'Calendario de entregas',
+        calendar_orders_label: 'Pedidos',
+        calendar_delivery_label: 'Entrega',
         loyalty_title: 'El sabor <span class="accent">que te premia</span>',
         loyalty_lead: 'Regístrate para acceder a las ventajas exclusivas de nuestro programa&nbsp;de&nbsp;fidelidad.',
         loyalty1_title: 'Acumula puntos',
@@ -1041,6 +1117,9 @@
         step4_text: 'Les comandes han d’arribar abans de les 12:00 del dilluns anterior al lliurament.',
         cost1_label: 'Comanda mínima',
         cost2_label: 'Despeses de lliurament',
+        calendar_title: 'Calendari de lliuraments',
+        calendar_orders_label: 'Comandes',
+        calendar_delivery_label: 'Lliurament',
         loyalty_title: 'El gust <span class="accent">que et premia</span>',
         loyalty_lead: 'Registra’t per accedir als avantatges exclusius del nostre programa&nbsp;de&nbsp;fidelitat.',
         loyalty1_title: 'Acumula punts',
