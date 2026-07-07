@@ -523,7 +523,7 @@
       background:rgba(255,255,255,0.28);
     }
     .delivery-calendar{
-      width:min(100%, 760px);
+      width:min(100%, 620px);
       margin:28px auto 0;
       padding:24px clamp(20px,3vw,34px);
       background:rgba(255,255,255,0.09);
@@ -545,9 +545,10 @@
     }
     .delivery-calendar__item{
       display:grid;
-      grid-template-columns:minmax(0, 1fr) auto minmax(0, 1fr);
+      grid-template-columns:auto 28px auto;
       align-items:center;
-      column-gap:14px;
+      justify-content:space-between;
+      column-gap:16px;
       background:rgba(255,255,255,0.08);
       border:1px solid rgba(255,255,255,0.14);
       border-radius:14px;
@@ -819,7 +820,7 @@
       .howto-cost-sep{ width:50px; height:1px; }
       .delivery-calendar{ margin-top:22px; padding:20px 18px; border-radius:18px; }
       .delivery-calendar__grid{ grid-template-columns:1fr; gap:10px; }
-      .delivery-calendar__item{ padding:13px 14px; column-gap:10px; }
+      .delivery-calendar__item{ grid-template-columns:auto 22px auto; padding:13px 14px; column-gap:8px; }
       .howto-cta{ margin-top:30px; }
       .loyalty{ padding:60px 22px; }
       .loyalty h2{ font-size:28px; line-height:1.18; }
