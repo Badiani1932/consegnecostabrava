@@ -523,7 +523,7 @@
       background:rgba(255,255,255,0.28);
     }
     .delivery-calendar{
-      width:min(100%, 880px);
+      width:min(100%, 760px);
       margin:28px auto 0;
       padding:24px clamp(20px,3vw,34px);
       background:rgba(255,255,255,0.09);
@@ -540,14 +540,18 @@
     }
     .delivery-calendar__grid{
       display:grid;
-      grid-template-columns:repeat(4, minmax(0, 1fr));
-      gap:12px;
+      grid-template-columns:1fr;
+      gap:10px;
     }
     .delivery-calendar__item{
+      display:grid;
+      grid-template-columns:minmax(0, 1fr) auto minmax(0, 1fr);
+      align-items:center;
+      column-gap:14px;
       background:rgba(255,255,255,0.08);
       border:1px solid rgba(255,255,255,0.14);
-      border-radius:16px;
-      padding:15px 14px;
+      border-radius:14px;
+      padding:14px 16px;
       color:#fff;
       font-size:clamp(13px,1.05vw,15px);
       line-height:1.45;
@@ -556,11 +560,20 @@
       display:block;
       color:#fff;
       font-weight:var(--fw-ui);
-      margin-bottom:3px;
+      margin-bottom:0;
+      white-space:nowrap;
+    }
+    .delivery-calendar__arrow{
+      color:var(--c-yellow);
+      font-size:20px;
+      line-height:1;
+      font-family:Arial, sans-serif;
     }
     .delivery-calendar__item > span{
       display:block;
       color:rgba(255,255,255,0.84);
+      white-space:nowrap;
+      text-align:right;
     }
     .delivery-calendar__item strong span{
       display:inline;
@@ -748,7 +761,7 @@
       .intro, .costa, .howto, .loyalty{ padding:70px 24px; }
       footer{ padding:50px 24px 30px; }
       .howto-grid{ grid-template-columns:repeat(2, 1fr); }
-      .delivery-calendar__grid{ grid-template-columns:repeat(2, minmax(0, 1fr)); }
+      .delivery-calendar__grid{ grid-template-columns:1fr; }
       .loyalty-grid{ grid-template-columns:repeat(3, 1fr); gap:18px; }
       .howto h2, .loyalty h2{ margin-bottom:40px; }
     }
@@ -804,7 +817,7 @@
       .howto-cost-sep{ width:50px; height:1px; }
       .delivery-calendar{ margin-top:22px; padding:20px 18px; border-radius:18px; }
       .delivery-calendar__grid{ grid-template-columns:1fr; gap:10px; }
-      .delivery-calendar__item{ padding:13px 14px; }
+      .delivery-calendar__item{ padding:13px 14px; column-gap:10px; }
       .howto-cta{ margin-top:30px; }
       .loyalty{ padding:60px 22px; }
       .loyalty h2{ font-size:28px; line-height:1.18; }
@@ -951,22 +964,27 @@
       <div class="delivery-calendar__grid">
         <div class="delivery-calendar__item">
           <strong><span data-i18n="calendar_orders_label">Pedidos</span> 20/07</strong>
+          <span class="delivery-calendar__arrow" aria-hidden="true">→</span>
           <span><span data-i18n="calendar_delivery_label">Entrega</span> 23/07</span>
         </div>
         <div class="delivery-calendar__item">
           <strong><span data-i18n="calendar_orders_label">Pedidos</span> 03/08</strong>
+          <span class="delivery-calendar__arrow" aria-hidden="true">→</span>
           <span><span data-i18n="calendar_delivery_label">Entrega</span> 06/08</span>
         </div>
         <div class="delivery-calendar__item">
           <strong><span data-i18n="calendar_orders_label">Pedidos</span> 10/08</strong>
+          <span class="delivery-calendar__arrow" aria-hidden="true">→</span>
           <span><span data-i18n="calendar_delivery_label">Entrega</span> 13/08</span>
         </div>
         <div class="delivery-calendar__item">
           <strong><span data-i18n="calendar_orders_label">Pedidos</span> 17/08</strong>
+          <span class="delivery-calendar__arrow" aria-hidden="true">→</span>
           <span><span data-i18n="calendar_delivery_label">Entrega</span> 20/08</span>
         </div>
         <div class="delivery-calendar__item">
           <strong><span data-i18n="calendar_orders_label">Pedidos</span> 24/08</strong>
+          <span class="delivery-calendar__arrow" aria-hidden="true">→</span>
           <span><span data-i18n="calendar_delivery_label">Entrega</span> 27/08</span>
         </div>
       </div>
